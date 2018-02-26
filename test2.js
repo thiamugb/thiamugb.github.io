@@ -10,12 +10,9 @@ $(function(){
                                 .then(function(device){
                                     console.log('> Found ' + device.name);
 
-                                })
-                                .catch(function(error){
-                                    console.log('Argh! ' + error);
-                                });
         //var dev=JSON.stringify(options, null, 2)
       //  alert('Name: ' + dev.filters);
         // Do something with the device.
     });
   });
+});
