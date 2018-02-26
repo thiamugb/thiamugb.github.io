@@ -36,23 +36,6 @@ $(document).ready(function(){
 
 });
 </script>
-<script>
-    function connect() {
-        let options = {
-
-    optionalServices: ['c48e6067-5295-48d3-8d5c-0395f61792b1'],
-    filters : [
-                ]
-    acceptAllDevices:true
-  }
-  navigator.bluetooth.requestDevice(options)
-            .then(device => {
-});
-
-
-    }
-
-</script>
 </head>
   <body ng-app="webble">
     <div ng-controller="InteractionCtrl">
@@ -88,7 +71,7 @@ $(document).ready(function(){
             </p>
             <p class="text-center">
               <button onclick="connect()" class="btn btn-danger">
-                  <i class="material-icons">blueto Js</i> Connect
+                  <i class="material-icons">bluetooth Js</i> Connect
               </button>
             </p>
             <p class="text-center"  >Notifications:
