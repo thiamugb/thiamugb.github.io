@@ -59,18 +59,10 @@
       </div>
       <footer class="footer">
 <script type="text/javascript">
-$(function(){
+$(document).ready(function(){
     $("#test").click(function(){
-        var options = {
-
-      optionalServices: ['c48e6067-5295-48d3-8d5c-0395f61792b1'],
-      acceptAllDevices:true
-                      }
-                      navigator.bluetooth.requestDevice(options)
-                                .then(function(device){
-                                    console.log('> Found ' + device.name);
-
-                                });
+    alert("Bonjour thiam");
+    $(this).hide();
                             });
   });
 </script>
