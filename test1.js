@@ -1,4 +1,3 @@
-
     function connect() {
         console.log('Requesting Bluetooth Device...');
         let options = {
