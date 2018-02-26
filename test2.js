@@ -1,5 +1,5 @@
 $(function(){
-    $("#test").click(function() {
+    $("#test").click(function(){
         let options = {
 
       optionalServices: ['c48e6067-5295-48d3-8d5c-0395f61792b1'],
@@ -16,7 +16,7 @@ $(function(){
                               {
                                     var value=event.target.value.getUint8(0)
                                     $("#notifiedValue").text("" +value);
-                                    alert('Name: ' + device.name);
+                                    //alert('Name: ' + device.name);
                                     // Do something with the device.
                                   })
                                 })
