@@ -21,12 +21,12 @@
                           $("notifiedValue").text("", +value);
                           .catch(error => {
                 console.log('Argh! ' + error);
-            });
-          });
-        });
-      });
-    });
-  });
+            })
+          })
+        })
+      })
+    })
+  })
 });
 
     }
