@@ -6,7 +6,6 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="style/main.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap-tpls.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script>
 $(document).ready(function(){
@@ -51,21 +50,7 @@ $(document).ready(function(){
             .then(device => {
                 console.log('> Found ' + device.name);
                 console.log('Connecting to GATT Server...');
-                //device.addEventListener('gattserverdisconnected', onDisconnected)
-                device.gatt.connect().then(gattserveur =>{
-                gattserveur.getPrimaryService("c48e6067-5295-48d3-8d5c-0395f61792b1").then(gattservice =>{
-                  gattservice.getCharacteristic("332f990e-8f0c-4ab8-8713-f51d63dd5910").then(gattcharacteristic =>
-                    {
-                      gattcharacteristic.startNotifications().then(gattcharacteristic =>{
-                        gattcharacteristic.addEventListener("characteristicvaluechanged", event =>{
-                          var value= event.target.value.getUint8(0);
-                          $("notifiedValue").text("", +value);
 
-          })
-        })
-      })
-    })
-  })
 })
 
 
@@ -85,7 +70,7 @@ $(document).ready(function(){
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="http://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+          <a class="navbar-brand" href="#">
             <strong>TestBLE</strong>
           </a>
         </div>
