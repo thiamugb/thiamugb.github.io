@@ -16,17 +16,16 @@ $(function(){
                                             gattcharacteristic.addEventListener("characteristicvaluechanged", function(event){
                                               var value= event.target.value.getUint8(0);
                                               $("notifiedValue").text("", +value);
-                                              .catch(function(error){
-                                                  console.log('Argh! ' + error);
-                                              });
-                                         });
+                                         })
+                                })
+                                  })
+                                    })
+                                      })
+                                        })
+                      
+                                .catch(function(error){
+                                    console.log('Argh! ' + error);
                                 });
-                              });
-                            });
-                          });
-                        });
-
-
         //var dev=JSON.stringify(options, null, 2)
       //  alert('Name: ' + dev.filters);
         // Do something with the device.
