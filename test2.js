@@ -11,6 +11,8 @@ $(function(){
                                     console.log('> Found ' + device.name);
 
                                 });
+                              });
+
                                 //options, null, 2)
       //  alert('Name: ' + dev.filters);
         // Do something with the device.
