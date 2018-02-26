@@ -10,8 +10,7 @@ $(function(){
                                 .then(function(device){
                                     console.log('> Found ' + device.name);
 
-
-                                })
+                                });
                                 .catch(function(error){
                                     console.log('Argh! ' + error);
                                 });
