@@ -10,7 +10,6 @@ navigator.bluetooth.requestDevice(options)
             console.log('> Found ' + device.name);
             console.log('Connecting to GATT Server...');
             //device.addEventListener('gattserverdisconnected', onDisconnected)
-            alert("Ok done")
           })
                       .catch(error => {
             console.log('Argh! ' + error);
