@@ -7,10 +7,10 @@ $(function(){
       acceptAllDevices:true
                       }
                       navigator.bluetooth.requestDevice(options)
-                                .then(device => {
+                                .then(function(device){
                                     console.log('> Found ' + device.name);
                                 })
-                                .catch(error => {
+                                .catch(function(error){
                                     console.log('Argh! ' + error);
                                 });
         //var dev=JSON.stringify(options, null, 2)
