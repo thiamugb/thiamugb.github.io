@@ -7,10 +7,16 @@
     <link rel="stylesheet" href="style/main.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/2.5.0/ui-bootstrap-tpls.min.js"></script>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
-    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript" src="js/test.js"></script>
-  </head>
+    <script>
+$(document).ready(function(){
+    $("p").click(function(){
+        $(this).hide();
+    });
+});
+</script>
+</head>
   <body ng-app="webble">
     <div ng-controller="InteractionCtrl">
       <nav class="navbar navbar-default" role="navigation">
@@ -58,14 +64,6 @@
         </div>
       </div>
       <footer class="footer">
-<script type="text/javascript">
-$(document).ready(function(){
-    $("#test").click(function(){
-    alert("Bonjour thiam");
-    $(this).hide();
-                            });
-  });
-</script>
       </footer>
     </div>
   </body>
