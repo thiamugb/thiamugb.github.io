@@ -19,14 +19,13 @@
                         gattcharacteristic.addEventListener("characteristicvaluechanged", event =>{
                           var value= event.target.value.getUint8(0);
                           $("notifiedValue").text("", +value);
-                          .catch(error => {
-                console.log('Argh! ' + error);
-            })
+
           })
         })
       })
     })
   })
-});
+})
+
 
     }
