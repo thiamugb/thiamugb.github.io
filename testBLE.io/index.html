@@ -30,10 +30,15 @@ $(document).ready(function(){
                                   device.gatt.connect().then(function(server){
                                     server.getPrimaryService('c48e6067-5295-48d3-8d5c-0395f61792b1').then(function(service){
                                       service.getCharacteristic('0d9dd6ab-e0e4-4d2e-acc1-8f0e60916cd4').then(function(characteristic){
-                                characteristic.readValue().then(function(value){
+                                let value=characteristic.readValue();
+                                characteristic.startNotifications().then(function(characteristic){
+                                characteristic.addEventListener('characteristicvaluechanged',function(event)
+                              {
                                   let decoder = new TextDecoder('utf-8');
                                   $("#notifiedValue").text(""+ decoder.decode(value));
-
+                                  let i=0
+                                  $("#changedValue").text("Le "+i+" valeur de characteristic");
+                          });
                           });
                           });
                           });
@@ -84,6 +89,10 @@ $(document).ready(function(){
             <p class="text-center"  >Notifications:
             <span class="text-center" id="notifiedValue" style="font-size: xx-large ;"> </span>
             </p>
+            <p class="text-center"  >char:
+            <span class="text-center" id="changedValue" style="font-size: xx-large ;"> </span>
+            </p>
+
             <div class="well">
               </div>
           </div>
