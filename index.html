@@ -18,8 +18,17 @@ $(document).ready(function(){
                     }
                     navigator.bluetooth.requestDevice(options)
                               .then(function(device){
+                                let dev=device;
+                                $("#onDisconnected").click(function(){
+                                    $("#notifiedValue").text(' Le bluetooth ' + dev.name + ' is disconnected');
+                                    $("button").hide()
+                                    $("#changedValue").hide()
+                                    $("#notified").hide()
+                                    device.gatt.disconnect()
+                                  });
                                   console.log('> Found ' + device.name);
                                   device.gatt.connect().then(function(server){
+                                    $("#notified").text(' Le bluetooth ' + dev.name + ' is connected');
                                     server.getPrimaryService('c48e6067-5295-48d3-8d5c-0395f61792b1').then(function(service){
                                       service.getCharacteristic('0d9dd6ab-e0e4-4d2e-acc1-8f0e60916cd4').then(function(characteristic){
                                 characteristic.startNotifications().then(function(characteristic){
@@ -52,7 +61,7 @@ $(document).ready(function(){
             <span class="icon-bar"></span>
           </button>
           <a class="navbar-brand" href="#">
-            <strong>TestBLE</strong>
+            <strong>TestBLE Notify</strong>
           </a>
         </div>
         <div class="collapse navbar-collapse" ng-class="!navCollapsed && 'in'"
@@ -71,9 +80,10 @@ $(document).ready(function(){
             <p class="text-center">
               <button class="btn btn-primary" id="test">Scan</button>
             </p>
+            <p id="notified"></p>
             <p class="text-center">
-              <button onclick="connect()" class="btn btn-danger">
-                  <i class="material-icons">bluetooth Jer</i> Connect
+              <button id="onDisconnected" class="btn btn-danger">
+                  <i class="material-icons">bluetooth </i> disconnected
               </button>
             </p>
             <p class="text-center"  >Notifications:
