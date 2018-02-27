@@ -28,11 +28,13 @@ $(document).ready(function(){
                                     $("#notifiedValue").text(' Le bluetooth ' + dev.name + ' is disconnected');
                                     $("button").hide()
                                     $("#changedValue").hide()
+                                    $("#notified").hide()
                                     device.gatt.disconnect()
                                   });
                                   console.log('> Found ' + device.name);
                                   device.gatt.connect().then(function(server){
-                                    server.getPrimaryService('c48e6067-5295-48d3-8d5c-0395f61792b1').then(function(service){
+                                        $("#notified").text(' Le bluetooth ' + dev.name + ' is connected');
+                                        server.getPrimaryService('c48e6067-5295-48d3-8d5c-0395f61792b1').then(function(service){
                                       service.getCharacteristic('0d9dd6ab-e0e4-4d2e-acc1-8f0e60916cd4').then(function(characteristic){
                                         characteristic.readValue().then(function(value){
                                           let decoder = new TextDecoder('utf-8');
@@ -83,6 +85,7 @@ $(document).ready(function(){
             <p class="text-center">
               <button class="btn btn-primary" id="test">Scan</button>
             </p>
+            <p id="notified"></p>
             <p class="text-center">
               <button id="onDisconnected" class="btn btn-danger">
                   <i class="material-icons">bluetoothh </i> disconnected
