@@ -33,11 +33,10 @@ $(document).ready(function(){
                                   console.log('> Found ' + device.name);
                                   device.gatt.connect().then(function(server){
                                     server.getPrimaryService('c48e6067-5295-48d3-8d5c-0395f61792b1').then(function(service){
-                                      service.getCharacteristic('0d9dd6ab-e0e4-4d2e-acc1-8f0e60916cd'+b).then(function(characteristic){
+                                      service.getCharacteristic('0d9dd6ab-e0e4-4d2e-acc1-8f0e60916cd4').then(function(characteristic){
                                         characteristic.readValue().then(function(value){
                                           let decoder = new TextDecoder('utf-8');
                                           liste=liste + decoder.decode(value);
-                                          b=b+1
                                           //$("#notifiedValue").text(":"+decoder.decode(value));
                                   });
                                 });
@@ -89,7 +88,7 @@ $(document).ready(function(){
                   <i class="material-icons">bluetoothh </i> disconnected
               </button>
             </p>
-            <p class="text-center"  >Notification:
+            <p class="text-center"  >Notifications:
             <span class="text-center" id="notifiedValue" style="font-size: xx-large ;"> </span>
             </p>
             <p class="text-center">
