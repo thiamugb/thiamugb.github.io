@@ -22,16 +22,12 @@ $(document).ready(function(){
                                   device.gatt.connect().then(function(server){
                                     server.getPrimaryService('c48e6067-5295-48d3-8d5c-0395f61792b1').then(function(service){
                                       service.getCharacteristic('0d9dd6ab-e0e4-4d2e-acc1-8f0e60916cd4').then(function(characteristic){
-                                characteristic.startNotifications().then(function(characteristic){
-                                characteristic.addEventListener('characteristicvaluechanged',function(event)
-                                {
-                                  var value=event.target.value.getUint8(0)
-                                  $("#notifiedValue").text("" +value);
-                                    let device = event.target;
-                                    $("#onDisconnected").click(function(){
-                                        $("#notifiedValue").text(' Le bluetooth ' + device.name + ' is disconnected');
-                                      });
-                                    });
+                                characteristic.readvalue().then(function(value){
+                                //characteristic.addEventListener('characteristicvaluechanged',function(event)
+                              //  {
+                                  var value1=value.getUint8(0)
+                                  $("#notifiedValue").text("" value);
+
 
                           });
                           });
@@ -77,7 +73,7 @@ $(document).ready(function(){
             </p>
             <p class="text-center">
               <button id="onDisconnected" class="btn btn-danger">
-                  <i class="material-icons">blue </i> disconnected
+                  <i class="material-icons">blueth </i> disconnected
               </button>
             </p>
             <p class="text-center"  >Notifications:
