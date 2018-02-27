@@ -16,6 +16,10 @@ $(document).ready(function(){
                                 {
                                   var value=event.target.value.getUint8(0)
                                   $("#notifiedValue").text("" +value);
+                                    let device = event.target;
+                                    $("#onDisconnected").click(function(){
+                                        $("#notifiedValue").text(' Le bluetooth ' + device.name + ' is disconnected');
+                                      });
                           });
                           });
                           });
