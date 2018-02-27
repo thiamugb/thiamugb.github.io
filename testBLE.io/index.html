@@ -11,6 +11,7 @@
     <script>
 
 $(document).ready(function(){
+  let liste=""
 
     $("#test").click(function(){
 
@@ -32,14 +33,17 @@ $(document).ready(function(){
                                       service.getCharacteristic('0d9dd6ab-e0e4-4d2e-acc1-8f0e60916cd4').then(function(characteristic){
                                         characteristic.readValue().then(function(value){
                                           let decoder = new TextDecoder('utf-8');
-                                          $("#notifiedValue").text(""+ decoder.decode(value));
-
+                                          liste=liste + decoder.decode(value);
                                   });
                                 });
 
                           });
                           });
                           });
+                          });
+                          $("#notifiedValue2").click(function(){
+                            $("#changedValue").text("mes données recuperes:"+liste);
+
                           });
 
 });
@@ -85,7 +89,12 @@ $(document).ready(function(){
             <p class="text-center"  >Notifications:
             <span class="text-center" id="notifiedValue" style="font-size: xx-large ;"> </span>
             </p>
-            <p class="text-center"  >char2:
+            <p class="text-center">
+              <button id="notifiedValue2" class="btn btn-danger">
+                  <i class="material-icons">Lire les données </i>
+              </button>
+            </p>
+            <p class="text-center"  >
             <span class="text-center" id="changedValue" style="font-size: xx-large ;"> </span>
             </p>
 
