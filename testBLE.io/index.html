@@ -27,7 +27,7 @@ $(document).ready(function(){
                                 {
                                   var value=event.target.value.getUint8(0)
                                   $("#notifiedValue").text("" +value);
-                                    //let device = event.target;
+                                    let device = event.target;
                                     $("#onDisconnected").click(function(){
                                         $("#notifiedValue").text(' Le bluetooth ' + device.name + ' is disconnected');
                                       });
@@ -77,7 +77,7 @@ $(document).ready(function(){
             </p>
             <p class="text-center">
               <button id="onDisconnected" class="btn btn-danger">
-                  <i class="material-icons">bluetooth </i> disconnected
+                  <i class="material-icons">blue </i> disconnected
               </button>
             </p>
             <p class="text-center"  >Notifications:
