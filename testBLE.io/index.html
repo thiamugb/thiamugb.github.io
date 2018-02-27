@@ -24,7 +24,7 @@ $(document).ready(function(){
                                       service.getCharacteristic('0d9dd6ab-e0e4-4d2e-acc1-8f0e60916cd4').then(function(characteristic){
                                 characteristic.readValue().then(function(value){
 
-                                  $("#notifiedValue").text(""+value.getUint8(0));
+                                  $("#notifiedValue").text(""+value);
 
 
                           });
@@ -71,7 +71,7 @@ $(document).ready(function(){
             </p>
             <p class="text-center">
               <button id="onDisconnected" class="btn btn-danger">
-                  <i class="material-icons">bluetooth </i> disconnected
+                  <i class="material-icons">bluetoot </i> disconnected
               </button>
             </p>
             <p class="text-center"  >Notifications:
