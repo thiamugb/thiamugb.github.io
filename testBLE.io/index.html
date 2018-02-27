@@ -28,9 +28,9 @@ $(document).ready(function(){
                                   var value=event.target.value.getUint8(0)
                                   $("#notifiedValue").text("" +value);
                                   $("#onDisconnected").click(function(event){
-                                      device.gatt.disconnect();
+                                      //device.gatt.disconnect();
                                       let devise1=event.target
-                                      $("#notifiedValue").text(' Le bluetooth ' + device.name + ' is disconnected'+ device.name);
+                                      $("#notifiedValue").text(' Le bluetooth  is disconnected'+ device.name);
                                     });
                                     });
 
