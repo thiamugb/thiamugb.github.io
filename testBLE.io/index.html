@@ -25,6 +25,7 @@ $(document).ready(function(){
                                 let dev=device;
                                 $("#onDisconnected").click(function(){
                                     $("#notifiedValue").text(' Le bluetooth ' + dev.name + ' is disconnected');
+                                    $("#notifiedValue2").hide()
                                     device.gatt.disconnect()
                                   });
                                   console.log('> Found ' + device.name);
