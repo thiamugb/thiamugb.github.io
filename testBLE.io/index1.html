@@ -11,6 +11,7 @@
     <script>
 
 $(document).ready(function(){
+  let liste=""
 
     $("#test").click(function(){
 
@@ -24,21 +25,27 @@ $(document).ready(function(){
                                 let dev=device;
                                 $("#onDisconnected").click(function(){
                                     $("#notifiedValue").text(' Le bluetooth ' + dev.name + ' is disconnected');
+                                    $("button").hide()
+                                    $("#changedValue").hide()
                                     device.gatt.disconnect()
                                   });
                                   console.log('> Found ' + device.name);
                                   device.gatt.connect().then(function(server){
                                     server.getPrimaryService('c48e6067-5295-48d3-8d5c-0395f61792b1').then(function(service){
                                       service.getCharacteristic('0d9dd6ab-e0e4-4d2e-acc1-8f0e60916cd4').then(function(characteristic){
-                                characteristic.readValue().then(function(value){
-                                  let decoder = new TextDecoder('utf-8');
-                                  $("#notifiedValue").text(""+ decoder.decode(value));
+                                        characteristic.readValue().then(function(value){
+                                          let decoder = new TextDecoder('utf-8');
+                                          liste=liste + decoder.decode(value);
+                                  });
+                                });
 
                           });
                           });
                           });
                           });
-                          });
+                          $("#notifiedValue2").click(function(){
+                            $("#changedValue").text("mes données recuperes:"+liste);
+
                           });
 
 });
@@ -71,8 +78,6 @@ $(document).ready(function(){
           <div class="col-md-3"></div>
           <div class="col-md-6">
             <h1 class="text-center"> Web BLE </h1>
-            <h2 class="text-center"><small><u>PREREQUISITES</u>: Chrome browser with <a href="chrome://flags/#enable-experimental-web-platform-features" target="_blank">Web Bluetooth Enabled</a></small></h2>
-
             <p class="text-center">
               <button class="btn btn-primary" id="test">Scan</button>
             </p>
@@ -84,6 +89,15 @@ $(document).ready(function(){
             <p class="text-center"  >Notifications:
             <span class="text-center" id="notifiedValue" style="font-size: xx-large ;"> </span>
             </p>
+            <p class="text-center">
+              <button id="notifiedValue2" class="btn btn-danger">
+                  <i class="material-icons">Lire les données de carte </i>
+              </button>
+            </p>
+            <p class="text-center"  >
+            <span class="text-center" id="changedValue" style="font-size: xx-large ;"> </span>
+            </p>
+
             <div class="well">
               </div>
           </div>
