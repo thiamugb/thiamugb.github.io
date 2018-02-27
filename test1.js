@@ -11,6 +11,8 @@
                 console.log('Connecting to GATT Server...');
                 //device.addEventListener('gattserverdisconnected', onDisconnected)
                 device.gatt.connect().then(gattserveur =>{
+                  $("notifiedValue").text("ok bon");
+
                 gattserveur.getPrimaryService("c48e6067-5295-48d3-8d5c-0395f61792b1").then(gattservice =>{
                   gattservice.getCharacteristic("0d9dd6ab-e0e4-4d2e-acc1-8f0e60916cd4").then(gattcharacteristic =>
                     {
