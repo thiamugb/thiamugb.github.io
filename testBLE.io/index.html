@@ -18,6 +18,7 @@ $(document).ready(function(){
                     }
                     navigator.bluetooth.requestDevice(options)
                               .then(function(device){
+
                                   console.log('> Found ' + device.name);
                                   device.gatt.connect().then(function(server){
                                     server.getPrimaryService('c48e6067-5295-48d3-8d5c-0395f61792b1').then(function(service){
@@ -27,11 +28,11 @@ $(document).ready(function(){
                                 {
                                   var value=event.target.value.getUint8(0)
                                   $("#notifiedValue").text("" +value);
-                                  $("#onDisconnected").click(function(event){
-                                      //device.gatt.disconnect();
-                                      let devise1=event.target
-                                      $("#notifiedValue").text(' Le bluetooth  is disconnected'+ device1.name);
-                                    });
+                                    let device1 = event.target;
+                                    $("#onDisconnected").click(function(){
+
+                                        $("#notifiedValue").text(' Le bluetooth ' + device1.name + ' is disconnected');
+                                      });
                                     });
 
                           });
