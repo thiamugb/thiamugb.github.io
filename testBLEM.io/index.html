@@ -11,7 +11,7 @@
     <script>
 
 $(document).ready(function(){
-  let liste=""
+  var liste=""
   let b=0
 
     $("#test").click(function(){
@@ -39,7 +39,9 @@ $(document).ready(function(){
                                         characteristic.readValue().then(function(value){
                                           let decoder = new TextDecoder('utf-8');
                                           liste=liste + decoder.decode(value);
-                                          //$("#notifiedValue").text(":"+decoder.decode(value));
+                                          $("#notifiedValue").text(":"+decoder.decode(value));
+                                          $("#notifiedValue4").text(":"+decoder.decode(value));
+
                                   });
                                 });
 
@@ -68,7 +70,7 @@ $(document).ready(function(){
             <span class="icon-bar"></span>
           </button>
           <a class="navbar-brand" href="#">
-            <strong>TestBLE </strong>
+            <strong>TestBLE</strong>
           </a>
         </div>
         <div class="collapse navbar-collapse" ng-class="!navCollapsed && 'in'"
@@ -93,6 +95,9 @@ $(document).ready(function(){
             </p>
             <p class="text-center"  >Notifications:
             <span class="text-center" id="notifiedValue" style="font-size: xx-large ;"> </span>
+            </p>
+            <p class="text-center"  >Notifications1:
+            <span class="text-center" id="notifiedValue4" style="font-size: xx-large ;"> </span>
             </p>
             <p class="text-center">
               <button id="notifiedValue2" class="btn btn-danger">
