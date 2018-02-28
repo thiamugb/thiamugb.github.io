@@ -40,6 +40,8 @@ $(document).ready(function(){
                                           characteristic.addEventListener('characteristicvaluechanged',function(event)
                                           {
                                             let decoder = new TextDecoder('utf-8');
+                                            var value=event.target.value.getUint8(0);
+                                            $("#notifiedValue4").text(": bonjour"+value);
                                             liste += decoder.decode(event.target.value);
                                           $("#notifiedValue").text(":" +liste);
                                           $("#notifiedValue4").text(": bonjour");
