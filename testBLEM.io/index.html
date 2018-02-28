@@ -36,12 +36,16 @@ $(document).ready(function(){
                                         $("#notified").text(' Le bluetooth ' + dev.name + ' is connected');
                                         server.getPrimaryService('c48e6067-5295-48d3-8d5c-0395f61792b1').then(function(service){
                                       service.getCharacteristic('0d9dd6ab-e0e4-4d2e-acc1-8f0e60916cd4').then(function(characteristic){
-
-                                          let decoder = new TextDecoder('utf-8');
-                                          liste += decoder.decode(characteristic.readValue());
+                                        characteristic.readValue().then(function(characteristic){
+                                          characteristic.addEventListener('characteristicvaluechanged',function(event)
+                                          {
+                                            let decoder = new TextDecoder('utf-8');
+                                            liste += decoder.decode(event.target.value);
                                           $("#notifiedValue").text(":" +liste);
-                                          $("#notifiedValue4").text(":" +decoder.decode(characteristic.readValue()));
+                                          $("#notifiedValue4").text(": bonjour");
+                                        });
 
+                                  });
                                 });
 
                           });
@@ -95,7 +99,7 @@ $(document).ready(function(){
             <p class="text-center"  >Notifications:
             <span class="text-center" id="notifiedValue" style="font-size: xx-large ;"> </span>
             </p>
-            <p class="text-center"  >Notificat1:
+            <p class="text-center"  >Notificati1:
             <span class="text-center" id="notifiedValue4" style="font-size: xx-large ;"> </span>
             </p>
             <p class="text-center">
