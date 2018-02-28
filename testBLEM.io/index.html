@@ -38,9 +38,9 @@ $(document).ready(function(){
                                       service.getCharacteristic('0d9dd6ab-e0e4-4d2e-acc1-8f0e60916cd4').then(function(characteristic){
                                         characteristic.readValue().then(function(value){
                                           let decoder = new TextDecoder('utf-8');
-                                          liste=liste + decoder.decode(value);
-                                          $("#notifiedValue").text(":"+decoder.decode(value));
-                                          $("#notifiedValue4").text(":"+decoder.decode(value));
+                                          liste += decoder.decode(value);
+                                          $("#notifiedValue").text(":" +liste);
+                                          $("#notifiedValue4").text(":" +decoder.decode(value));
 
                                   });
                                 });
