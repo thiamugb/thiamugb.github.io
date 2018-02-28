@@ -41,8 +41,8 @@ $(document).ready(function(){
                                           liste += decoder.decode(value);
                                           value.addEventListener('characteristicvaluechanged',function(event)
                                           {
-                                            var value=event.target.getUint8(0);
-                                            $("#notifiedValue4").text(": bonjour"+value);
+                                            //var value=event.target.getUint8(0);
+                                            $("#notifiedValue4").text(": bonjour"+event.target);
                                           //$("#notifiedValue").text(":" +liste);
                                           });
                                   });
@@ -99,7 +99,7 @@ $(document).ready(function(){
             <p class="text-center"  >Notifications:
             <span class="text-center" id="notifiedValue" style="font-size: xx-large ;"> </span>
             </p>
-            <p class="text-center"  >Notification1:
+            <p class="text-center"  >Notificatio1:
             <span class="text-center" id="notifiedValue4" style="font-size: xx-large ;"> </span>
             </p>
             <p class="text-center">
