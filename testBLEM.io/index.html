@@ -48,10 +48,9 @@ $(document).ready(function(){
                         function handlechanged(event)
                           {
                             let decoder = new TextDecoder('utf-8');
-                            var value=event.target.value.getUint8(0);
-                            var value1=event.target.value.getUint8(1);
-                            $("#notifiedValue4").text(": bonjour" +value);
-                            liste = decoder.decode(value) + decoder.decode(value1);
+                            var value=event.target.value;
+                            $("#notifiedValue4").text(": bonjour");
+                            liste += decoder.decode(value);
                           $("#notifiedValue").text(":" +liste);
 
                           }
@@ -102,7 +101,7 @@ $(document).ready(function(){
             <p class="text-center"  >Notifications:
             <span class="text-center" id="notifiedValue" style="font-size: xx-large ;"> </span>
             </p>
-            <p class="text-center"  >Notification1:
+            <p class="text-center"  >Notifications1:
             <span class="text-center" id="notifiedValue4" style="font-size: xx-large ;"> </span>
             </p>
             <p class="text-center">
