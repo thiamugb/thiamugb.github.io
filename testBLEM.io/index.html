@@ -38,13 +38,22 @@ $(document).ready(function(){
                                         server.getPrimaryService('c48e6067-5295-48d3-8d5c-0395f61792b1').then(function(service){
 
                                       service.getCharacteristic('0d9dd6ab-e0e4-4d2e-acc1-8f0e60916cd4').then(function(characteristic1,characteristic2){
-                                characteristic1.addEventListener('characteristicvaluechanged',handlechanged);
-                                characteristic2.addEventListener('characteristicvaluechanged',handlechanged);
+                              //  characteristic1.addEventListener('characteristicvaluechanged',handlechanged);
+                              //  characteristic2.addEventListener('characteristicvaluechanged',handlechanged);
                                        v1=characteristic1.readValue();
                                        v2=characteristic2.readValue();
-                                return  v1,v2 ;
+                              //  return  v1,v2 ;
 
                               //});
+                              let decoder = new TextDecoder('utf-8');
+                              var value=event.target.value;
+                              liste += decoder.decode(v1);
+                              l += decoder.decode(v2);
+                            $("#notifiedValue").text(":" +liste);
+                            $("#notifiedValue2").click(function(){
+                              $("#changedValue").text("mes données recuperes:"+liste);
+                              $("#notifiedValue4").text(": bonjour"+l);
+                            });
 });
                           });
                           });
@@ -110,7 +119,7 @@ $(document).ready(function(){
             <p class="text-center"  >Notifications:
             <span class="text-center" id="notifiedValue" style="font-size: xx-large ;"> </span>
             </p>
-            <p class="text-center"  >Notificatio1:
+            <p class="text-center"  >Notification1:
             <span class="text-center" id="notifiedValue4" style="font-size: xx-large ;"> </span>
             </p>
             <p class="text-center">
