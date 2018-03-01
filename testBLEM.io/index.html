@@ -36,22 +36,13 @@ $(document).ready(function(){
                                   device.gatt.connect().then(function(server){
                                         $("#notified").text(' Le bluetooth ' + dev.name + ' is connected');
                                         server.getPrimaryService('c48e6067-5295-48d3-8d5c-0395f61792b1').then(function(service){
+                                      service.getCharacteristic('0d9dd6ab-e0e4-4d2e-acc1-8f0e60916cd4').then(function(characteristic){
+                                        characteristic.startNotifications().then(function(characteristic){
+                                characteristic.addEventListener('characteristicvaluechanged',handlechanged);
+                                return  characteristic.readValue();
 
-                                      service.getCharacteristic('0d9dd6ab-e0e4-4d2e-acc1-8f0e60916cd4').then(function(characteristic1,characteristic2){
-                              //  characteristic1.addEventListener('characteristicvaluechanged',handlechanged);
-                              //  characteristic2.addEventListener('characteristicvaluechanged',handlechanged);
-                                       v1=characteristic1.readValue();
-                                       v2=characteristic2.readValue();
-                              //  return  v1,v2 ;
-
-                              //});
-                              let decoder = new TextDecoder('utf-8');
-                              liste += decoder.decode(v1);
-                              //let decoder1 = new TextDecoder('utf-8');
-
-                              //l += decoder1.decode(v2);
-                            $("#notifiedValue").text(": " +liste);
                               });
+});
                           });
                           });
                           });
@@ -67,11 +58,11 @@ $(document).ready(function(){
                           {
                             l += String.fromCharCode(event.target.value.getInt8(i));
                           }
-                          }
                           $("#notifiedValue2").click(function(){
                             $("#changedValue").text("mes données recuperes:"+liste);
                             $("#notifiedValue4").text(": bonjour"+l);
                           });
+                          }
 
 
 });
@@ -116,7 +107,7 @@ $(document).ready(function(){
             <p class="text-center"  >Notifications:
             <span class="text-center" id="notifiedValue" style="font-size: xx-large ;"> </span>
             </p>
-            <p class="text-center"  >Notificatis1:
+            <p class="text-center"  >Notifications1:
             <span class="text-center" id="notifiedValue4" style="font-size: xx-large ;"> </span>
             </p>
             <p class="text-center">
