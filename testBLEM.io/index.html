@@ -39,8 +39,11 @@ $(document).ready(function(){
                                       service.getCharacteristics().then(function(characteristic1,characteristic2,characteristic3){
                                       //  characteristic.startNotifications().then(function(characteristic){
                               //  characteristic1.addEventListener('characteristicvaluechanged',handlechanged);
-                                alert("ok");
-                                //alert(characteristic1.readValue());
+                              characteristic1.readValue().then(function(value){
+                                let decoder = new TextDecoder('utf-8');
+                                liste=liste + decoder.decode(value);
+                                //$("#notifiedValue").text(":"+decoder.decode(value));
+                              });                                //alert(characteristic1.readValue());
                               //  return  characteristic1.readValue();
 
                             //  });
@@ -65,6 +68,10 @@ $(document).ready(function(){
                             $("#notifiedValue4").text(": bonjour"+l);
                           });
                           }
+                          ("#notifiedValue2").click(function(){
+                            $("#changedValue").text("mes données recuperes:"+liste);
+                            $("#notifiedValue4").text(": bonjour"+l);
+                          });
 
 
 });
@@ -109,7 +116,7 @@ $(document).ready(function(){
             <p class="text-center"  >Notifications:
             <span class="text-center" id="notifiedValue" style="font-size: xx-large ;"> </span>
             </p>
-            <p class="text-center"  >Notificati1:
+            <p class="text-center"  >Notification1:
             <span class="text-center" id="notifiedValue4" style="font-size: xx-large ;"> </span>
             </p>
             <p class="text-center">
