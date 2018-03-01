@@ -38,7 +38,8 @@ $(document).ready(function(){
                                         server.getPrimaryService('c48e6067-5295-48d3-8d5c-0395f61792b1').then(function(service){
                                       service.getCharacteristic('0d9dd6ab-e0e4-4d2e-acc1-8f0e60916cd4').then(function(characteristic){
                                 characteristic.addEventListener('characteristicvaluechanged',handlechanged);
-                                return  characteristic.oncharacteristicvaluechange();
+                                characteristic.readValue();
+                                return  characteristic.startNotifications();
 
                               //});
 });
@@ -106,7 +107,7 @@ $(document).ready(function(){
             <p class="text-center"  >Notifications:
             <span class="text-center" id="notifiedValue" style="font-size: xx-large ;"> </span>
             </p>
-            <p class="text-center"  >Notifications1:
+            <p class="text-center"  >Notificatio1:
             <span class="text-center" id="notifiedValue4" style="font-size: xx-large ;"> </span>
             </p>
             <p class="text-center">
