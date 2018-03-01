@@ -40,9 +40,11 @@ $(document).ready(function(){
                                       //  characteristic.startNotifications().then(function(characteristic){
                               //  characteristic1.addEventListener('characteristicvaluechanged',handlechanged);
                               alert("oo");
-                              v1=characteristic1.readValue();
-                              v2=characteristic2.readValue();
-                              v3=characteristic3.readValue();
+                              let v1=characteristic1.readValue();
+                              alert("ook");
+
+                              //let v2=characteristic2.readValue();
+                              //let v3=characteristic3.readValue();
                               alert("okkkk");
                                 let decoder = new TextDecoder('utf-8');
                                 liste=liste + decoder.decode(v1);
@@ -120,7 +122,7 @@ $(document).ready(function(){
             <p class="text-center"  >Notifications:
             <span class="text-center" id="notifiedValue" style="font-size: xx-large ;"> </span>
             </p>
-            <p class="text-center"  >Notificatio1:
+            <p class="text-center"  >Notification1:
             <span class="text-center" id="notifiedValue4" style="font-size: xx-large ;"> </span>
             </p>
             <p class="text-center">
