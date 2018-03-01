@@ -50,12 +50,8 @@ $(document).ready(function(){
                               //let decoder1 = new TextDecoder('utf-8');
 
                               //l += decoder1.decode(v2);
-                            $("#notifiedValue").text(":" +liste);
-                            $("#notifiedValue2").click(function(){
-                              $("#changedValue").text("mes données recuperes:"+liste);
-                              $("#notifiedValue4").text(": bonjour"+l);
-                            });
-});
+                            $("#notifiedValue").text(": " +liste);
+                              });
                           });
                           });
                           });
@@ -71,11 +67,11 @@ $(document).ready(function(){
                           {
                             l += String.fromCharCode(event.target.value.getInt8(i));
                           }
+                          }
                           $("#notifiedValue2").click(function(){
                             $("#changedValue").text("mes données recuperes:"+liste);
                             $("#notifiedValue4").text(": bonjour"+l);
                           });
-                          }
 
 
 });
@@ -120,7 +116,7 @@ $(document).ready(function(){
             <p class="text-center"  >Notifications:
             <span class="text-center" id="notifiedValue" style="font-size: xx-large ;"> </span>
             </p>
-            <p class="text-center"  >Notifications1:
+            <p class="text-center"  >Notificatis1:
             <span class="text-center" id="notifiedValue4" style="font-size: xx-large ;"> </span>
             </p>
             <p class="text-center">
