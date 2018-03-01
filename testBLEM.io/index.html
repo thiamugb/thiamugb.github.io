@@ -36,7 +36,7 @@ $(document).ready(function(){
                                   device.gatt.connect().then(function(server){
                                         $("#notified").text(' Le bluetooth ' + dev.name + ' is connected');
                                         server.getPrimaryService('c48e6067-5295-48d3-8d5c-0395f61792b1').then(function(service){
-                                      service.getCharacteristic('0d9dd6ab-e0e4-4d2e-acc1-8f0e60916cd4').then(function(characteristic){
+                                      service.getCharacteristics('0d9dd6ab-e0e4-4d2e-acc1-8f0e60916cd4').then(function(characteristic){
                                         characteristic.startNotifications().then(function(characteristic){
                                 characteristic.addEventListener('characteristicvaluechanged',handlechanged);
                                 return  characteristic.readValue();
@@ -56,8 +56,7 @@ $(document).ready(function(){
                           var result = "";
                           for (var i=event.target.value.byteOffset; i<event.target.value.byteLength; i++)
                           {
-                            alert(event.target.value.byteLength);
-                            l += String.fromCharCode(event.target.value.getInt8(0));
+                            l += String.fromCharCode(event.target.value.getInt8(i));
                           }
                           $("#notifiedValue2").click(function(){
                             $("#changedValue").text("mes données recuperes:"+liste);
@@ -108,7 +107,7 @@ $(document).ready(function(){
             <p class="text-center"  >Notifications:
             <span class="text-center" id="notifiedValue" style="font-size: xx-large ;"> </span>
             </p>
-            <p class="text-center"  >Notifications1:
+            <p class="text-center"  >Notificati1:
             <span class="text-center" id="notifiedValue4" style="font-size: xx-large ;"> </span>
             </p>
             <p class="text-center">
