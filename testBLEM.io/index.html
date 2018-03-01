@@ -56,6 +56,7 @@ $(document).ready(function(){
                           var result = "";
                           for (var i=event.target.value.byteOffset; i<event.target.value.byteLength; i++)
                           {
+                            alert(event.target.value.byteLength);
                             l += String.fromCharCode(event.target.value.getInt8(i));
                           }
                           $("#notifiedValue2").click(function(){
@@ -107,7 +108,7 @@ $(document).ready(function(){
             <p class="text-center"  >Notifications:
             <span class="text-center" id="notifiedValue" style="font-size: xx-large ;"> </span>
             </p>
-            <p class="text-center"  >Notifications1:
+            <p class="text-center"  >Notificats1:
             <span class="text-center" id="notifiedValue4" style="font-size: xx-large ;"> </span>
             </p>
             <p class="text-center">
