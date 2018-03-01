@@ -42,7 +42,7 @@ $(document).ready(function(){
                               characteristic1.readValue().then(function(value){
                                 let decoder = new TextDecoder('utf-8');
                                 liste=liste + decoder.decode(value);
-                                //$("#notifiedValue").text(":"+decoder.decode(value));
+                                $("#notifiedValue").text(":"+decoder.decode(value));
                               });                                //alert(characteristic1.readValue());
                               //  return  characteristic1.readValue();
 
@@ -116,7 +116,7 @@ $(document).ready(function(){
             <p class="text-center"  >Notifications:
             <span class="text-center" id="notifiedValue" style="font-size: xx-large ;"> </span>
             </p>
-            <p class="text-center"  >Notification1:
+            <p class="text-center"  >Notificati1:
             <span class="text-center" id="notifiedValue4" style="font-size: xx-large ;"> </span>
             </p>
             <p class="text-center">
