@@ -46,9 +46,10 @@ $(document).ready(function(){
 
                               //});
                               let decoder = new TextDecoder('utf-8');
-                              var value=event.target.value;
                               liste += decoder.decode(v1);
-                              l += decoder.decode(v2);
+                              //let decoder1 = new TextDecoder('utf-8');
+
+                              //l += decoder1.decode(v2);
                             $("#notifiedValue").text(":" +liste);
                             $("#notifiedValue2").click(function(){
                               $("#changedValue").text("mes données recuperes:"+liste);
@@ -119,7 +120,7 @@ $(document).ready(function(){
             <p class="text-center"  >Notifications:
             <span class="text-center" id="notifiedValue" style="font-size: xx-large ;"> </span>
             </p>
-            <p class="text-center"  >Notification1:
+            <p class="text-center"  >Notifications1:
             <span class="text-center" id="notifiedValue4" style="font-size: xx-large ;"> </span>
             </p>
             <p class="text-center">
