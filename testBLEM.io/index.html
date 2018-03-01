@@ -38,21 +38,10 @@ $(document).ready(function(){
                                         server.getPrimaryService('c48e6067-5295-48d3-8d5c-0395f61792b1').then(function(service){
                                       service.getCharacteristics().then(function(characteristic){
                                       //  characteristic.startNotifications().then(function(characteristic){
-                              //  characteristic1.addEventListener('characteristicvaluechanged',handlechanged);
+                                characteristic1.addEventListener('characteristicvaluechanged',handlechanged);
                               //alert("oo");
-                              let v2=characteristic.readValue();
-                              alert("ook");
+                              return characteristic.readValue();
 
-                              //let v2=characteristic2.readValue();
-                              //let v3=characteristic3.readValue();
-                              alert("okkkk");
-                                let decoder = new TextDecoder('utf-8');
-                                liste=liste + decoder.decode(v1);
-                                $("#notifiedValue").text(": "+liste);
-                            //  });                                //alert(characteristic1.readValue());
-                              //  return  characteristic1.readValue();
-
-                            //  });
 });
                           });
                           });
@@ -74,11 +63,6 @@ $(document).ready(function(){
                             $("#notifiedValue4").text(": bonjour"+l);
                           });
                           }
-                          ("#notifiedValue2").click(function(){
-                            $("#changedValue").text("mes données recuperes:"+liste);
-                            $("#notifiedValue4").text(": bonjour"+l);
-                          });
-
 
 });
 </script>
@@ -122,7 +106,7 @@ $(document).ready(function(){
             <p class="text-center"  >Notifications:
             <span class="text-center" id="notifiedValue" style="font-size: xx-large ;"> </span>
             </p>
-            <p class="text-center"  >Notifications1:
+            <p class="text-center"  >Notificationsss1:
             <span class="text-center" id="notifiedValue4" style="font-size: xx-large ;"> </span>
             </p>
             <p class="text-center">
