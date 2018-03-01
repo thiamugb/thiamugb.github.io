@@ -39,8 +39,8 @@ $(document).ready(function(){
                                       service.getCharacteristics().then(function(characteristic1,characteristic2,characteristic3){
                                       //  characteristic.startNotifications().then(function(characteristic){
                               //  characteristic1.addEventListener('characteristicvaluechanged',handlechanged);
-                              alert("oo");
-                              let v1=characteristic1.readValue();
+                              //alert("oo");
+                              var v1=characteristic1.readValue();
                               alert("ook");
 
                               //let v2=characteristic2.readValue();
@@ -122,7 +122,7 @@ $(document).ready(function(){
             <p class="text-center"  >Notifications:
             <span class="text-center" id="notifiedValue" style="font-size: xx-large ;"> </span>
             </p>
-            <p class="text-center"  >Notification1:
+            <p class="text-center"  >Notificationss1:
             <span class="text-center" id="notifiedValue4" style="font-size: xx-large ;"> </span>
             </p>
             <p class="text-center">
